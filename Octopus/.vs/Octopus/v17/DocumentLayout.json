@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "D:\\lib\\DoP\\Octopus\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{0E608887-5B6C-47E3-AF3A-89F38A2F33DE}|Octopus.vcxproj|D:\\lib\\DoP\\Octopus\\generate_map.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{0E608887-5B6C-47E3-AF3A-89F38A2F33DE}|Octopus.vcxproj|solutionrelative:generate_map.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{0E608887-5B6C-47E3-AF3A-89F38A2F33DE}|Octopus.vcxproj|D:\\lib\\DoP\\Octopus\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{0E608887-5B6C-47E3-AF3A-89F38A2F33DE}|Octopus.vcxproj|solutionrelative:main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0E608887-5B6C-47E3-AF3A-89F38A2F33DE}|Octopus.vcxproj|D:\\lib\\DoP\\Octopus\\Header.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{0E608887-5B6C-47E3-AF3A-89F38A2F33DE}|Octopus.vcxproj|solutionrelative:Header.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0E608887-5B6C-47E3-AF3A-89F38A2F33DE}|Octopus.vcxproj|D:\\lib\\DoP\\Octopus\\generate_map.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{0E608887-5B6C-47E3-AF3A-89F38A2F33DE}|Octopus.vcxproj|solutionrelative:generate_map.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0E608887-5B6C-47E3-AF3A-89F38A2F33DE}|Octopus.vcxproj|D:\\lib\\DoP\\Octopus\\generate_map.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -26,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 325,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -34,7 +34,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "main.cpp",
               "DocumentMoniker": "D:\\lib\\DoP\\Octopus\\main.cpp",
               "RelativeDocumentMoniker": "main.cpp",
@@ -52,7 +52,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Header.h",
               "DocumentMoniker": "D:\\lib\\DoP\\Octopus\\Header.h",
               "RelativeDocumentMoniker": "Header.h",
@@ -64,15 +64,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "generate_map.cpp",
               "DocumentMoniker": "D:\\lib\\DoP\\Octopus\\generate_map.cpp",
               "RelativeDocumentMoniker": "generate_map.cpp",
               "ToolTip": "D:\\lib\\DoP\\Octopus\\generate_map.cpp",
               "RelativeToolTip": "generate_map.cpp",
-              "ViewState": "AQIAAHUAAAAAAAAAAAAAAAwAAAAhAAAA",
+              "ViewState": "AQIAALIAAAAAAAAAAAAAAJwAAAAVAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-02-24T02:05:35.328Z"
+              "WhenOpened": "2024-02-24T02:05:35.328Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",

@@ -12,7 +12,7 @@ bool isPrime(int n)
 }
 void generate_layer2(int n, int m)
 {
-	std::ofstream fout("D://lib//Octopus//image//layer2.txt");
+	std::ofstream fout("image//layer2.txt");
 	int i = 0;
 	for (; i <= n / 2; ++i)
 	{
@@ -115,7 +115,7 @@ void generate_layer2(int n, int m)
 }
 void generate_map(int n, int m)
 {
-	std::ofstream fout("D://lib//Octopus//image//map.txt");
+	std::ofstream fout("image//map.txt");
 	int i = 0;
 	for (; i < n / 2; ++i)
 	{
@@ -154,7 +154,7 @@ void generate_map(int n, int m)
 void generate_layer3(int n, int m,int **map)
 {
 	srand(time(0));
-	std::ofstream fout("D://lib//Octopus//image//layer3.txt");
+	std::ofstream fout("image//layer3.txt");
 	//int** map = new int* [n];
 	for (int i = 0; i <= n; ++i)
 	{

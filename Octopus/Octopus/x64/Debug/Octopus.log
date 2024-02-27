@@ -1,5 +1,3 @@
 ﻿  generate_map.cpp
 D:\lib\DoP\Octopus\generate_map.cpp(156,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-  main.cpp
-  Generating Code...
   Octopus.vcxproj -> D:\lib\DoP\Octopus\x64\Debug\Octopus.exe
