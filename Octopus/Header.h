@@ -1,3 +1,5 @@
+#ifndef HEADER_H_
+#define HEADER_H_
 #include <SDL.h>
 #include <stdio.h>
 #include <iostream>
@@ -5,6 +7,7 @@
 #include <SDL_image.h>
 #include <SDL_ttf.h>
 #include <fstream>	
+#include <map>
 #include <map>
 #include <utility>
 //Screen dimension constants
@@ -53,6 +56,8 @@ enum Buttons
 	TOTAL_BUTTONS
 
 };
+static SDL_Window* window = NULL;
+static SDL_Renderer* Renderer = NULL;
 class MyTexture
 {
 public:
@@ -146,3 +151,4 @@ int bg_ = MENU,alp = 255,dis = 1,dis_l = 1,cur_point = 0;
 int cur_power = 16;
 char MapType = '1';
 void CreateMap(const std::string &Path, MyTexture **Layer, int MAP_H, int MAP_W, char _map);
+#endif

@@ -1,3 +1,21 @@
-﻿  generate_map.cpp
-D:\lib\DoP\Octopus\generate_map.cpp(156,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-  Octopus.vcxproj -> D:\lib\DoP\Octopus\x64\Debug\Octopus.exe
+﻿Header.obj : error LNK2005: "int RowNum" (?RowNum@@3HA) already defined in main.obj
+Header.obj : error LNK2005: "int bgFrame" (?bgFrame@@3HA) already defined in main.obj
+Header.obj : error LNK2005: "struct _TTF_Font * gFont" (?gFont@@3PEAU_TTF_Font@@EA) already defined in main.obj
+Header.obj : error LNK2005: "struct SDL_Rect * Clip" (?Clip@@3PAUSDL_Rect@@A) already defined in main.obj
+Header.obj : error LNK2005: "class MyTexture * * Layer1" (?Layer1@@3PEAPEAVMyTexture@@EA) already defined in main.obj
+Header.obj : error LNK2005: "class MyTexture * * Layer2" (?Layer2@@3PEAPEAVMyTexture@@EA) already defined in main.obj
+Header.obj : error LNK2005: "class MyTexture * * Layer3" (?Layer3@@3PEAPEAVMyTexture@@EA) already defined in main.obj
+Header.obj : error LNK2005: "int bg_" (?bg_@@3HA) already defined in main.obj
+Header.obj : error LNK2005: "int alp" (?alp@@3HA) already defined in main.obj
+Header.obj : error LNK2005: "int dis" (?dis@@3HA) already defined in main.obj
+Header.obj : error LNK2005: "int dis_l" (?dis_l@@3HA) already defined in main.obj
+Header.obj : error LNK2005: "int cur_point" (?cur_point@@3HA) already defined in main.obj
+Header.obj : error LNK2005: "int cur_power" (?cur_power@@3HA) already defined in main.obj
+Header.obj : error LNK2005: "char MapType" (?MapType@@3DA) already defined in main.obj
+Header.obj : error LNK2005: "class MyTexture * BackgroundTexture" (?BackgroundTexture@@3PAVMyTexture@@A) already defined in main.obj
+Header.obj : error LNK2005: "class MyButton * Button" (?Button@@3PAVMyButton@@A) already defined in main.obj
+Header.obj : error LNK2005: "class MyCharacter Char" (?Char@@3VMyCharacter@@A) already defined in main.obj
+Header.obj : error LNK2005: "class MyTexture Heart" (?Heart@@3VMyTexture@@A) already defined in main.obj
+Header.obj : error LNK2005: "class MyTexture (* Pow)[4]" (?Pow@@3PAY03VMyTexture@@A) already defined in main.obj
+Header.obj : error LNK2005: "class MyText Text" (?Text@@3VMyText@@A) already defined in main.obj
+D:\lib\DoP\Octopus\x64\Debug\Octopus.exe : fatal error LNK1169: one or more multiply defined symbols found

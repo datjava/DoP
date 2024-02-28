@@ -134,6 +134,7 @@
   <ItemGroup>
     <ClCompile Include="generate_map.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Header.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Header.h" />
