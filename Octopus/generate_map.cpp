@@ -10,7 +10,7 @@ bool isPrime(int n)
 	}
 	return true;
 }
-void generate_layer2(int n, int m)
+void generate_layer1(int n, int m)
 {
 	std::ofstream fout("image//layer2.txt");
 	int i = 0;
@@ -113,45 +113,73 @@ void generate_layer2(int n, int m)
 		fout << "\n";
 	}
 }
-void generate_map(int n, int m)
+void generate_layer2(int n, int m, int*& a)
 {
+	srand(time(0));
+	//n width m height
+	//n col m row
 	std::ofstream fout("image//map.txt");
-	int i = 0;
-	for (; i < n / 2; ++i)
+	int** map = new int* [m];
+	a = new int[n];
+	for (int i = 0; i <= m; ++i)
 	{
-		for (int j = 0; j < m; ++j)
+		map[i] = new int[n];
+		memset(map[i], 0, n * sizeof(int));
+	}
+	for (int i = 0; i < 2; ++i)
+	{
+		a[i] = 0;
+	}
+	for (int i = 2; i < n; ++i)
+	{
+
+		int high = rand() % 5 + 4;
+		a[i] = high;
+	}
+
+	for (int j = 0; j < n; ++j)
+	{
+		for (int i = 0; i < m; ++i)
 		{
-			fout << 06 << "  ";
+			//std:: cout << j << ' ' << i << ' ' << a[j] << '\n';
+			if (i == a[j])
+			{
+				
+				if (rand() % 2 != 0)
+				{
+					if (j != 0 && j >= 4 && a[j - 2] != 1000000000)
+					{
+						a[j] = 1000000000;
+						map[i][j] = 37;
+					}
+					else
+					{
+						map[i][j] = 36;
+					}
+				}
+				else
+				{
+					map[i][j] = 36;
+				}
+			}
+		}
+
+
+	}
+	for (int i = m - 1; i > 0; --i)
+	{
+		for (int j = 0; j < n; ++j)
+		{
+
+			fout << map[i][j];
+			if (map[i][j] < 10)fout << "  ";
+			else fout << " ";
 		}
 		fout << "\n";
-	}
-	// for(int j = 0; j < m; ++j)
-	// {
-	//    fout << 14 << " ";
-	// }
-	// fout << "\n";
-	for (int j = 0; j < m; ++j)
-	{
-		if (j % 5 == 0)
-		{
-			fout << 15 << " ";
-		}
-		else
-			fout << 14 << " ";
-	}
-	fout << "\n";
-	i += 1;
-	for (; i < n; ++i)
-	{
-		for (int j = 0; j < m; ++j)
-		{
-			fout << 06 << "  ";
-		}
-		fout << "\n";
+
 	}
 }
-
-void generate_layer3(int n, int m,int **map)
+void generate_layer3(int n, int m, int** map)
 {
 	srand(time(0));
 	std::ofstream fout("image//layer3.txt");

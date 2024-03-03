@@ -3,24 +3,56 @@
   "WorkspaceRootPath": "D:\\lib\\DoP\\Octopus\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{0E608887-5B6C-47E3-AF3A-89F38A2F33DE}|Octopus.vcxproj|D:\\lib\\DoP\\Octopus\\generate_map.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{0E608887-5B6C-47E3-AF3A-89F38A2F33DE}|Octopus.vcxproj|solutionrelative:generate_map.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{0E608887-5B6C-47E3-AF3A-89F38A2F33DE}|Octopus.vcxproj|D:\\lib\\DoP\\Octopus\\generate_map.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{0E608887-5B6C-47E3-AF3A-89F38A2F33DE}|Octopus.vcxproj|solutionrelative:generate_map.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0E608887-5B6C-47E3-AF3A-89F38A2F33DE}|Octopus.vcxproj|D:\\lib\\DoP\\Octopus\\Header.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{0E608887-5B6C-47E3-AF3A-89F38A2F33DE}|Octopus.vcxproj|solutionrelative:Header.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{0E608887-5B6C-47E3-AF3A-89F38A2F33DE}|Octopus.vcxproj|D:\\lib\\DoP\\Octopus\\Character.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{0E608887-5B6C-47E3-AF3A-89F38A2F33DE}|Octopus.vcxproj|solutionrelative:Character.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E608887-5B6C-47E3-AF3A-89F38A2F33DE}|Octopus.vcxproj|D:\\lib\\DoP\\Octopus\\Play_game.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{0E608887-5B6C-47E3-AF3A-89F38A2F33DE}|Octopus.vcxproj|solutionrelative:Play_game.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E608887-5B6C-47E3-AF3A-89F38A2F33DE}|Octopus.vcxproj|D:\\lib\\DoP\\Octopus\\Character.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{0E608887-5B6C-47E3-AF3A-89F38A2F33DE}|Octopus.vcxproj|solutionrelative:Character.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E608887-5B6C-47E3-AF3A-89F38A2F33DE}|Octopus.vcxproj|D:\\lib\\DoP\\Octopus\\Play_game.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{0E608887-5B6C-47E3-AF3A-89F38A2F33DE}|Octopus.vcxproj|solutionrelative:Play_game.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E608887-5B6C-47E3-AF3A-89F38A2F33DE}|Octopus.vcxproj|D:\\lib\\DoP\\Octopus\\generate_map.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{0E608887-5B6C-47E3-AF3A-89F38A2F33DE}|Octopus.vcxproj|solutionrelative:generate_map.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0E608887-5B6C-47E3-AF3A-89F38A2F33DE}|Octopus.vcxproj|D:\\lib\\DoP\\Octopus\\Header.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{0E608887-5B6C-47E3-AF3A-89F38A2F33DE}|Octopus.vcxproj|solutionrelative:Header.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{0E608887-5B6C-47E3-AF3A-89F38A2F33DE}|Octopus.vcxproj|D:\\lib\\DoP\\Octopus\\Button.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{0E608887-5B6C-47E3-AF3A-89F38A2F33DE}|Octopus.vcxproj|solutionrelative:Button.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E608887-5B6C-47E3-AF3A-89F38A2F33DE}|Octopus.vcxproj|D:\\lib\\DoP\\Octopus\\Button.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{0E608887-5B6C-47E3-AF3A-89F38A2F33DE}|Octopus.vcxproj|solutionrelative:Button.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E608887-5B6C-47E3-AF3A-89F38A2F33DE}|Octopus.vcxproj|D:\\lib\\DoP\\Octopus\\Tile.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{0E608887-5B6C-47E3-AF3A-89F38A2F33DE}|Octopus.vcxproj|solutionrelative:Tile.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E608887-5B6C-47E3-AF3A-89F38A2F33DE}|Octopus.vcxproj|D:\\lib\\DoP\\Octopus\\Text.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{0E608887-5B6C-47E3-AF3A-89F38A2F33DE}|Octopus.vcxproj|solutionrelative:Text.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{0E608887-5B6C-47E3-AF3A-89F38A2F33DE}|Octopus.vcxproj|D:\\lib\\DoP\\Octopus\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{0E608887-5B6C-47E3-AF3A-89F38A2F33DE}|Octopus.vcxproj|solutionrelative:main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E608887-5B6C-47E3-AF3A-89F38A2F33DE}|Octopus.vcxproj|D:\\lib\\DoP\\Octopus\\Tile.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{0E608887-5B6C-47E3-AF3A-89F38A2F33DE}|Octopus.vcxproj|solutionrelative:Tile.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,7 +62,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 325,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 10,
           "Children": [
             {
               "$type": "Bookmark",
@@ -38,31 +70,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 11,
               "Title": "main.cpp",
               "DocumentMoniker": "D:\\lib\\DoP\\Octopus\\main.cpp",
               "RelativeDocumentMoniker": "main.cpp",
               "ToolTip": "D:\\lib\\DoP\\Octopus\\main.cpp",
               "RelativeToolTip": "main.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAP8AAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAEAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-02-08T01:57:00.336Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Header.h",
-              "DocumentMoniker": "D:\\lib\\DoP\\Octopus\\Header.h",
-              "RelativeDocumentMoniker": "Header.h",
-              "ToolTip": "D:\\lib\\DoP\\Octopus\\Header.h",
-              "RelativeToolTip": "Header.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAOAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-02-08T08:41:54.144Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Bookmark",
@@ -71,41 +88,149 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Header.cpp",
-              "DocumentMoniker": "D:\\lib\\DoP\\Octopus\\Header.cpp",
-              "RelativeDocumentMoniker": "Header.cpp",
-              "ToolTip": "D:\\lib\\DoP\\Octopus\\Header.cpp",
-              "RelativeToolTip": "Header.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAJcAAAABAAAA",
+              "Title": "Play_game.cpp",
+              "DocumentMoniker": "D:\\lib\\DoP\\Octopus\\Play_game.cpp",
+              "RelativeDocumentMoniker": "Play_game.cpp",
+              "ToolTip": "D:\\lib\\DoP\\Octopus\\Play_game.cpp",
+              "RelativeToolTip": "Play_game.cpp",
+              "ViewState": "AQIAAAQCAAAAAAAAAAAAAAYCAAAZAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-02-28T13:41:46.582Z",
+              "WhenOpened": "2024-02-29T05:42:49.668Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "generate_map.cpp",
-              "DocumentMoniker": "D:\\lib\\DoP\\Octopus\\generate_map.cpp",
-              "RelativeDocumentMoniker": "generate_map.cpp",
-              "ToolTip": "D:\\lib\\DoP\\Octopus\\generate_map.cpp",
-              "RelativeToolTip": "generate_map.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAJwAAAAVAAAA",
+              "DocumentIndex": 3,
+              "Title": "Character.cpp",
+              "DocumentMoniker": "D:\\lib\\DoP\\Octopus\\Character.cpp",
+              "RelativeDocumentMoniker": "Character.cpp",
+              "ToolTip": "D:\\lib\\DoP\\Octopus\\Character.cpp",
+              "RelativeToolTip": "Character.cpp",
+              "ViewState": "AQIAADYAAAAAAAAAAAAAAEQAAABAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-02-24T02:05:35.328Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-29T03:06:48.57Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
+              "Title": "Play_game.h",
+              "DocumentMoniker": "D:\\lib\\DoP\\Octopus\\Play_game.h",
+              "RelativeDocumentMoniker": "Play_game.h",
+              "ToolTip": "D:\\lib\\DoP\\Octopus\\Play_game.h",
+              "RelativeToolTip": "Play_game.h",
+              "ViewState": "AQIAABEAAAAAAAAAAAAtwB8AAAAQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-03-02T17:40:48.198Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "generate_map.h",
               "DocumentMoniker": "D:\\lib\\DoP\\Octopus\\generate_map.h",
               "RelativeDocumentMoniker": "generate_map.h",
               "ToolTip": "D:\\lib\\DoP\\Octopus\\generate_map.h",
               "RelativeToolTip": "generate_map.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAhAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAqAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-02-24T02:24:43.196Z",
+              "WhenOpened": "2024-02-29T05:18:50.441Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Button.cpp",
+              "DocumentMoniker": "D:\\lib\\DoP\\Octopus\\Button.cpp",
+              "RelativeDocumentMoniker": "Button.cpp",
+              "ToolTip": "D:\\lib\\DoP\\Octopus\\Button.cpp",
+              "RelativeToolTip": "Button.cpp",
+              "ViewState": "AQIAABsAAAAAAAAAAAAAACcAAAAkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-03-01T15:57:12.198Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Character.h",
+              "DocumentMoniker": "D:\\lib\\DoP\\Octopus\\Character.h",
+              "RelativeDocumentMoniker": "Character.h",
+              "ToolTip": "D:\\lib\\DoP\\Octopus\\Character.h",
+              "RelativeToolTip": "Character.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-02-29T03:07:04.156Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Header.h",
+              "DocumentMoniker": "D:\\lib\\DoP\\Octopus\\Header.h",
+              "RelativeDocumentMoniker": "Header.h",
+              "ToolTip": "D:\\lib\\DoP\\Octopus\\Header.h",
+              "RelativeToolTip": "Header.h",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAtwBsAAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-02-29T04:44:06.275Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "generate_map.cpp",
+              "DocumentMoniker": "D:\\lib\\DoP\\Octopus\\generate_map.cpp",
+              "RelativeDocumentMoniker": "generate_map.cpp",
+              "ToolTip": "D:\\lib\\DoP\\Octopus\\generate_map.cpp",
+              "RelativeToolTip": "generate_map.cpp",
+              "ViewState": "AQIAAHYAAAAAAAAAAAAIwIQAAAAPAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-02-29T05:05:00.113Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Button.h",
+              "DocumentMoniker": "D:\\lib\\DoP\\Octopus\\Button.h",
+              "RelativeDocumentMoniker": "Button.h",
+              "ToolTip": "D:\\lib\\DoP\\Octopus\\Button.h",
+              "RelativeToolTip": "Button.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAATAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-03-01T15:57:12.553Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Tile.cpp",
+              "DocumentMoniker": "D:\\lib\\DoP\\Octopus\\Tile.cpp",
+              "RelativeDocumentMoniker": "Tile.cpp",
+              "ToolTip": "D:\\lib\\DoP\\Octopus\\Tile.cpp",
+              "RelativeToolTip": "Tile.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-02-29T05:01:13.353Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Text.cpp",
+              "DocumentMoniker": "D:\\lib\\DoP\\Octopus\\Text.cpp",
+              "RelativeDocumentMoniker": "Text.cpp",
+              "ToolTip": "D:\\lib\\DoP\\Octopus\\Text.cpp",
+              "RelativeToolTip": "Text.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAArwAsAAAAKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-03-01T15:57:51.643Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Tile.h",
+              "DocumentMoniker": "D:\\lib\\DoP\\Octopus\\Tile.h",
+              "RelativeDocumentMoniker": "Tile.h",
+              "ToolTip": "D:\\lib\\DoP\\Octopus\\Tile.h",
+              "RelativeToolTip": "Tile.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-02-29T05:01:16.307Z"
             }
           ]
         },
