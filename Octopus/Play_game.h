@@ -34,7 +34,9 @@ private:
 	int* arr;
 	char MapType = '1';
 	bool quit = false;
-	MyTexture** Layer1 ;
+	MyTexture* Layer1 ;
 	MyTexture** Layer2 ;
 	MyTexture* Gate ;
+	MyTexture* maidFace;
+	MyTexture* maidBody;
 };

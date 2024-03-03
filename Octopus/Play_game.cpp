@@ -13,6 +13,8 @@ Game::Game()
 	Layer2 = NULL;
 	arr = NULL;
 	Gate = NULL;
+	maidFace = NULL;
+	maidBody = NULL;
 }
 
 Game::~Game()
@@ -112,7 +114,7 @@ bool Game::MediaLoad()
 		success = false;
 	}
 	//load character texture
-	Char = new MyCharacter(86 * 3 + 10,0);
+	Char = new MyCharacter(86 * 4 - 43 - 16, 0);
 	Char->setRenderer(Renderer);
 	if (Char->loadFromFile("image/Pink_Monster_Jump_8.png") == 0)
 	{
@@ -189,7 +191,7 @@ bool Game::MediaLoad()
 		Clip[i].w = 32;
 		Clip[i].h = 32;
 	}
-	for(int i = 0; i < 4; ++i)
+	for (int i = 0; i < 4; ++i)
 		for (int j = 0; j < 8; ++j)
 		{
 			Clip_[i][j].x = j * 256;
@@ -198,7 +200,13 @@ bool Game::MediaLoad()
 			Clip_[i][j].h = 256;
 		}
 	//load main bg
-	Layer1 = new MyTexture* [3];
+	Layer1 = new MyTexture();
+	if (Layer1->loadFromFile("image/nature1/0.png") == 0)
+	{
+		printf("Failed to load main background texture image!\n");
+		success = false;
+	}
+	/*Layer1 = new MyTexture* [3];
 	for (int i = 1; i <= 2; ++i)
 	{
 		Layer1[i] = new MyTexture[5];
@@ -215,7 +223,7 @@ bool Game::MediaLoad()
 				printf("Failed to load22 tile texture image!\n");
 		}
 
-	}
+	}*/
 	//Load tile texture
 	Layer2 = new MyTexture * [M_H_2];
 	for (int i = 0; i < M_H_2; ++i)
@@ -258,6 +266,21 @@ bool Game::MediaLoad()
 		printf("Failed to load gate texture image!\n");
 		success = false;
 	}*/
+	//load maid
+	maidFace = new MyTexture();
+	maidFace->setRenderer(Renderer);
+	maidBody = new MyTexture();
+	maidBody->setRenderer(Renderer);
+	if (maidFace->loadFromFile("image/Maid Faceset.png") == 0)
+	{
+		printf("Failed to load maid texture image!\n");
+		success = false;
+	}
+	if (maidBody->loadFromFile("image/Maid body.png") == 0)
+	{
+		printf("Failed to load maid texture image!\n");
+		success = false;
+	}
 	return success;
 
 }
@@ -283,7 +306,7 @@ void Game::CreateMap(const std::string& Path, MyTexture** Layer, int MAP_H, int 
 				while (value.size() != 4)value = "0" + value;
 				s += value;
 				s += ".png";
-				
+
 				if (value != "0000")
 				{
 					//std::cout << s << '\n';
@@ -311,7 +334,7 @@ void Game::CreateMap(const std::string& Path, MyTexture** Layer, int MAP_H, int 
 void Game::handleInput()
 {
 	//SDL_Event e;
-	int CharFrame = 0;
+	int CharFrame = 0,maidFrame = 0;
 	//bool quit = false;
 	while (!quit)
 	{
@@ -376,7 +399,7 @@ void Game::handleInput()
 							//bg_ = SETTING;
 							MapType = '1';
 							map = 1;
-							
+
 							//CreateMap("image/map.txt", Layer1, M_H_1, M_W_1, MapType);
 							CreateMap("image/map.txt", Layer2, M_H_2, M_W_2, MapType);
 							//CreateMap("image/layer3.txt", Layer3, M_H_2, M_W_2, MapType);
@@ -385,7 +408,7 @@ void Game::handleInput()
 							//bg_ = SETTING;
 							MapType = '2';
 							map = 2;
-							
+
 							//CreateMap("image/map.txt", Layer1, M_H_1, M_W_1, MapType);
 							CreateMap("image/map.txt", Layer2, M_H_2, M_W_2, MapType);
 							//CreateMap("image/layer3.txt", Layer3, M_H_2, M_W_2, MapType);
@@ -412,7 +435,7 @@ void Game::handleInput()
 			}
 			else if (e.type == SDL_KEYDOWN)
 			{
-				if (Char != NULL)Char->Update(e,arr,bgFrame);
+				if (Char != NULL)Char->Update(e, arr, bgFrame);
 
 				//switch (e.key.keysym.sym)
 				//{
@@ -459,7 +482,17 @@ void Game::handleInput()
 			Button[play_].TShow(200, 350);
 			Button[quit_].TShow(200, 490);
 			Button[settings_].TShow(200, 420);
-
+			maidFrame++;
+			maidFrame %= 3;
+			maidBody->TShow(990, 180);
+			SDL_Rect rect;
+			rect.x = 144 * maidFrame;
+			rect.y = 0;
+			rect.w = 144;
+			rect.h = 144;
+			maidFace->TShow(1048, 290, &rect);
+			SDL_Delay(100);
+			
 		}
 		if (bg_ == SETTING_CHAR)
 		{
@@ -488,21 +521,16 @@ void Game::handleInput()
 			{
 				bgFrame = std::max(0, bgFrame);
 				//show map
-				SDL_Rect rect;
-				rect.x = bgFrame / 1200;
-				rect.y = 0;
-				rect.w = SCREEN_WIDTH;
-				rect.h = SCREEN_HEIGHT;
-				Layer1[map][0].TShow(0, 0,&rect);		
+				//Layer1->TShow(0, 0,&rect);		
 				//std::cout <<bgFrame << '\n';			
-				for (int i = 0;i < M_H_2;++i)
+				for (int i = 0; i < M_H_2; ++i)
 				{
-					for (int j = bgFrame; j <M_W_2; ++j)
+					for (int j = bgFrame; j < M_W_2; ++j)
 					{
 						if (Layer2[i][j].getType() != -1)
 						{
-							Layer2[i][j].TShow( (j - bgFrame)*86, i * 30);
-							
+							Layer2[i][j].TShow((j - bgFrame) * 86, i * 30);
+
 						}
 					}
 				}
@@ -512,7 +540,7 @@ void Game::handleInput()
 				Button[back_].TShow(20, 570);
 
 				//show character
-				Char->PutOnGround(Layer2, M_W_2, bgFrame,86,30);
+				Char->PutOnGround(Layer2, M_W_2, bgFrame, 86, 30);
 				Char->TShow(-1, -1, &Clip[CharFrame]);
 
 				//show gate
@@ -527,7 +555,6 @@ void Game::handleInput()
 					s += ".png";
 					Gate->loadFromFile(s);
 					Gate->TShow(Char->getX() - 28, Char->getY() - 5);
-					SDL_Delay(10);
 				}
 
 				//show heart and power
@@ -537,24 +564,35 @@ void Game::handleInput()
 				}
 				for (int i = 0; i < cur_power; ++i)
 				{
-					if (i < Char->totalPower())
+					if (i == 0)
 					{
-						if (i == 0)
-							Pow[1][0].TShow(10 + i * 9, 40);
-						else if (i < Char->totalPower() - 1)
-							Pow[1][1].TShow(10 + i * 9, 40);
-						else
-							Pow[1][2].TShow(10 + i * 9, 40);
+						Pow[0][0].TShow(10 + i * 18 + 9, 50);
+					}
+					else if (i == cur_power - 1)
+					{
+						Pow[0][2].TShow(10 + i * 18, 50);
 					}
 					else
 					{
-						if (i == Char->totalPower() - 1)
-							Pow[0][2].TShow(10 + i * 9, 40);
-						else
-							Pow[0][2].TShow(10 + i * 9, 40);
+						Pow[0][1].TShow(10 + i * 18, 50);
 					}
 				}
-			
+				for (int i = 0; i < Char->totalPower(); ++i)
+				{
+					if (i == 0)
+					{
+						Pow[1][0].TShow(10 + i * 18  + 9, 50);
+					}
+					else if (i == Char->totalPower() - 1)
+					{
+						Pow[1][2].TShow(10 + i * 18, 50);
+					}
+					else
+					{
+						Pow[1][1].TShow(10 + i * 18, 50);
+					}
+				}
+
 			}
 
 			SDL_Delay(100);

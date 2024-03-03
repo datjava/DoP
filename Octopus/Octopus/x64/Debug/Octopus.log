@@ -1,4 +1,2 @@
-﻿  generate_map.cpp
-D:\lib\DoP\Octopus\generate_map.cpp(118,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-D:\lib\DoP\Octopus\generate_map.cpp(184,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+﻿  Play_game.cpp
   Octopus.vcxproj -> D:\lib\DoP\Octopus\x64\Debug\Octopus.exe

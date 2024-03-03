@@ -126,11 +126,11 @@ void generate_layer2(int n, int m, int*& a)
 		map[i] = new int[n];
 		memset(map[i], 0, n * sizeof(int));
 	}
-	for (int i = 0; i < 2; ++i)
+	for (int i = 0; i < 3; ++i)
 	{
 		a[i] = 0;
 	}
-	for (int i = 2; i < n; ++i)
+	for (int i = 3; i < n; ++i)
 	{
 
 		int high = rand() % 5 + 4;

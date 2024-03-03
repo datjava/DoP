@@ -13,10 +13,10 @@ public:
 	int getY() { return pos_y; }
 	int totalHeart() { return heart; }
 	int totalPower() { return power; }
-	bool getState() { return want_to_move; }
+	int getState() { return want_to_move; }
 private:
 	bool isOnGround = 0;
 	int heart = 3;
 	int power = 16;
-	bool want_to_move = false;
+	int want_to_move = 0;
 };
