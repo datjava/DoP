@@ -15,6 +15,7 @@ Game::Game()
 	Gate = NULL;
 	maidFace = NULL;
 	maidBody = NULL;
+	board = NULL;
 }
 
 Game::~Game()
@@ -201,6 +202,7 @@ bool Game::MediaLoad()
 		}
 	//load main bg
 	Layer1 = new MyTexture();
+	Layer1->setRenderer(Renderer);
 	if (Layer1->loadFromFile("image/nature1/0.png") == 0)
 	{
 		printf("Failed to load main background texture image!\n");
@@ -281,6 +283,10 @@ bool Game::MediaLoad()
 		printf("Failed to load maid texture image!\n");
 		success = false;
 	}
+	//load board
+	board = new MyTexture(200,200);
+	board->setRenderer(Renderer);
+	board->loadFromFile("image/console.png");
 	return success;
 
 }
@@ -336,6 +342,12 @@ void Game::handleInput()
 	//SDL_Event e;
 	int CharFrame = 0,maidFrame = 0;
 	//bool quit = false;
+	std::ifstream fin1("image/intro.txt");
+	std::string cur = "",s = "";
+	if (!fin1.eof())
+	{
+		std::getline(fin1, cur);
+	}
 	while (!quit)
 	{
 		while (SDL_PollEvent(&e) != 0)
@@ -435,7 +447,7 @@ void Game::handleInput()
 			}
 			else if (e.type == SDL_KEYDOWN)
 			{
-				if (Char != NULL)Char->Update(e, arr, bgFrame);
+				if (Char != NULL)Char->Update(e, arr, curBg);
 
 				//switch (e.key.keysym.sym)
 				//{
@@ -491,8 +503,17 @@ void Game::handleInput()
 			rect.w = 144;
 			rect.h = 144;
 			maidFace->TShow(1048, 290, &rect);
-			SDL_Delay(100);
 			
+			if (s.size() < cur.size())
+			{
+				int x = s.size();
+				s += cur[x];
+				//std::cout << s;
+				Text.loadFromRenderedText(s, { 255,255,255 });
+			}
+			board->TShow(200, 200);
+			Text.TShow(210, 235);
+			SDL_Delay(200);
 		}
 		if (bg_ == SETTING_CHAR)
 		{
@@ -520,8 +541,15 @@ void Game::handleInput()
 			if (Char != NULL)
 			{
 				bgFrame = std::max(0, bgFrame);
+				if (bgFrame > curBg)bgFrame--;
+				else if(bgFrame < curBg)bgFrame++;
 				//show map
-				//Layer1->TShow(0, 0,&rect);		
+				SDL_Rect rect;
+				rect.x = bgFrame % Layer1->getWidth();
+				rect.y = 0;
+				rect.w = SCREEN_WIDTH;
+				rect.h = SCREEN_HEIGHT;
+				Layer1->TShow(0, 0,&rect);		
 				//std::cout <<bgFrame << '\n';			
 				for (int i = 0; i < M_H_2; ++i)
 				{
@@ -530,7 +558,6 @@ void Game::handleInput()
 						if (Layer2[i][j].getType() != -1)
 						{
 							Layer2[i][j].TShow((j - bgFrame) * 86, i * 30);
-
 						}
 					}
 				}

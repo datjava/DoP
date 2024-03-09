@@ -17,7 +17,7 @@ MyText::MyText(int x, int y)
 	}
 	if (gFont == NULL)
 	{
-		gFont = TTF_OpenFont("font/lazy.ttf", 72);
+		gFont = TTF_OpenFont("font/lazy1.ttf", 12);
 		if (gFont == NULL)
 		{
 			printf("Failed to load lazy font! SDL_ttf Error: %s\n", TTF_GetError());
@@ -39,7 +39,7 @@ bool MyText::loadFromRenderedText(std::string textureText, SDL_Color textColor)
 	{
 		printf("Failed to load lazy font! SDL_ttf Error: %s\n", TTF_GetError());
 	}
-	SDL_Surface* textSurface = TTF_RenderText_Solid(gFont, textureText.c_str(), textColor);
+	SDL_Surface* textSurface = TTF_RenderText_Blended_Wrapped(gFont, textureText.c_str(), textColor, 470);
 	if (textSurface == NULL)
 	{
 		printf("Unable to render text surface! SDL_ttf Error: %s\n", TTF_GetError());

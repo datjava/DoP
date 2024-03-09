@@ -10,6 +10,7 @@
 #include <map>
 #include <map>
 #include <utility>
+
 //Screen dimension constants
 const int SCREEN_WIDTH = 1200;
 const int SCREEN_HEIGHT = 675;
@@ -82,7 +83,8 @@ public:
 	void setAlpha(Uint8 alpha);
 	//Get type of texture
 	int getType() { return type; }
-
+	//return texture
+	SDL_Texture* getTexture() { return Texture; }
 protected:
 	//The actual hardware texture
 	SDL_Texture* Texture;

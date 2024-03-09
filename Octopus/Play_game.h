@@ -29,7 +29,7 @@ private:
 	int bg_ = MENU, alp = 255, dis = 1, dis_l = 2, cur_point = 0;
 	int map = 1;
 	int cur_power = 16;
-	int bgFrame = 0;
+	int bgFrame = 0,curBg = 0;
 	int bgGate = 0;
 	int* arr;
 	char MapType = '1';
@@ -39,4 +39,5 @@ private:
 	MyTexture* Gate ;
 	MyTexture* maidFace;
 	MyTexture* maidBody;
+	MyTexture* board;
 };

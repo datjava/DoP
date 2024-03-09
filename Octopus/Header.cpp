@@ -110,6 +110,7 @@ bool MyTexture::loadFromFile(std::string path, int value)
 	//Texture = loadTexture(path.c_str());
 	return  Texture != NULL;
 }
+
 //SDL_Texture* loadTexture(std::string path)
 //{
 //
