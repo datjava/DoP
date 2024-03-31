@@ -6,9 +6,9 @@ class MyCharacter : public MyTexture
 public:
 	MyCharacter(int x = 0, int y = 0);
 	~MyCharacter();
-	void Update(SDL_Event& e,int a[], int& bgFrame);
-	//void Check(MyTexture** layer, int w, int h, int& bgFrame);
-	void PutOnGround(MyTexture** layer, int w_m,int& bgFrame,int w = TILE_LY2,int h = TILE_LY2);
+	void Update(MyTexture** layer, SDL_Event& e,std::vector<SDL_Point> a, int& bgFrame);
+	bool Check(MyTexture** layer,int x,int y);
+	
 	int getX(){ return pos_x; }
 	int getY() { return pos_y; }
 	int totalHeart() { return heart; }

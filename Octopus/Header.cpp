@@ -33,7 +33,7 @@ void MyTexture::setRenderer(SDL_Renderer* _renderer)
 {
 	renderer = _renderer;
 }
-void MyTexture::TShow( int x, int y, SDL_Rect* clip)
+void MyTexture::TShow( double x, double y, SDL_Rect* clip)
 {
 	//free();
 	if (x != -1 && y != -1)

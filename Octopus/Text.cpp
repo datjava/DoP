@@ -1,45 +1,41 @@
 #include "Text.h"
 
 //MyText
-MyText::MyText(int x, int y)
+MyText::MyText(int x,int y)
 {
 	//Initialize
 	Texture = NULL;
-	pos_x = x;
-	pos_y = y;
 	Width = 0;
 	Height = 0;
 	type = 0;
+	if (x != -1 && y != -1)
+	{
+		pos_x = x;
+		pos_y = y;
+	}
+	else
+	{
+		pos_x = 0;
+		pos_y = 0;
+	}
 	if (TTF_Init() == -1)
 	{
 		printf("SDL_ttf could not initialize! SDL_ttf Error: %s\n", TTF_GetError());
 		//success = false;
-	}
-	if (gFont == NULL)
-	{
-		gFont = TTF_OpenFont("font/lazy1.ttf", 12);
-		if (gFont == NULL)
-		{
-			printf("Failed to load lazy font! SDL_ttf Error: %s\n", TTF_GetError());
-			//success = false;
-		}
 	}
 }
 MyText::~MyText()
 {
 	free();
 }
-bool MyText::loadFromRenderedText(std::string textureText, SDL_Color textColor)
+bool MyText::loadFromRenderedText(std::string textureText, SDL_Color textColor )
 {
 	//Get rid of preexisting texture
 	free();
 
 	//Render text surface
-	if (gFont == NULL)
-	{
-		printf("Failed to load lazy font! SDL_ttf Error: %s\n", TTF_GetError());
-	}
 	SDL_Surface* textSurface = TTF_RenderText_Blended_Wrapped(gFont, textureText.c_str(), textColor, 470);
+	
 	if (textSurface == NULL)
 	{
 		printf("Unable to render text surface! SDL_ttf Error: %s\n", TTF_GetError());
@@ -65,4 +61,8 @@ bool MyText::loadFromRenderedText(std::string textureText, SDL_Color textColor)
 
 	//Return success
 	return Texture != NULL;
+}
+void MyText::setFont(int size, std::string tF)
+{
+	gFont = TTF_OpenFont(tF.c_str(), size);
 }

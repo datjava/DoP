@@ -1,3 +1,35 @@
-﻿  Play_game.cpp
-D:\lib\DoP\Octopus\Play_game.cpp(509,11): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+﻿  Button.cpp
+  Character.cpp
+D:\lib\DoP\Octopus\Character.h(12,21): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
+  (compiling source file 'Character.cpp')
+  
+D:\lib\DoP\Octopus\Character.h(13,22): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
+  (compiling source file 'Character.cpp')
+  
+D:\lib\DoP\Octopus\Character.cpp(19,8): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+D:\lib\DoP\Octopus\Character.cpp(20,8): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+  Header.cpp
+D:\lib\DoP\Octopus\Header.cpp(50,23): warning C4838: conversion from 'double' to 'int' requires a narrowing conversion
+D:\lib\DoP\Octopus\Header.cpp(50,23): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+D:\lib\DoP\Octopus\Header.cpp(50,25): warning C4838: conversion from 'double' to 'int' requires a narrowing conversion
+D:\lib\DoP\Octopus\Header.cpp(50,25): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+  Play_game.cpp
+D:\lib\DoP\Octopus\Character.h(12,21): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
+  (compiling source file 'Play_game.cpp')
+  
+D:\lib\DoP\Octopus\Character.h(13,22): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
+  (compiling source file 'Play_game.cpp')
+  
+  Text.cpp
+  Tile.cpp
+  generate_map.cpp
+D:\lib\DoP\Octopus\generate_map.cpp(4,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  main.cpp
+D:\lib\DoP\Octopus\Character.h(12,21): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
+  (compiling source file 'main.cpp')
+  
+D:\lib\DoP\Octopus\Character.h(13,22): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
+  (compiling source file 'main.cpp')
+  
+  Generating Code...
   Octopus.vcxproj -> D:\lib\DoP\Octopus\x64\Debug\Octopus.exe

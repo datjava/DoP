@@ -9,9 +9,6 @@ MyButton::MyButton(int x, int y)
 	Width = 0;
 	Height = 0;
 	type = 0;
-	Path[1] = "";
-	Path[0] = "";
-	cnt = 0;
 }
 MyButton::~MyButton()
 {
@@ -31,14 +28,7 @@ bool MyButton::handleEvent(const SDL_Event& e)
 	m_x = e.button.x;
 	m_y = e.button.y;
 	bool ck = IsInside(m_x, m_y);
-	if (ck)cnt ^= 1;
-	else if (cnt == 1)cnt ^= 1;
-	loadFromFile(Path[cnt]);
 	return ck;
 
 }
-void MyButton::givePath(std::string path1, std::string path2)
-{
-	Path[1] = path1;
-	Path[0] = path2;
-}
+

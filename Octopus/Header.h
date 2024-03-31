@@ -10,7 +10,13 @@
 #include <map>
 #include <map>
 #include <utility>
-
+#include <vector>
+#include<cmath>
+#include<algorithm>
+#include <cstring>
+#include<random>
+#include<set>
+#include<queue>
 //Screen dimension constants
 const int SCREEN_WIDTH = 1200;
 const int SCREEN_HEIGHT = 675;
@@ -22,23 +28,22 @@ const int TILE_LY1 = 64;
 const int TILE_LY2 = 32;
 const int M_W_1 = 20;
 const int M_H_1 = 11;
-const int M_W_2 = 180;
-const int M_H_2 = 18;
+const int M_W_2 = 75;
+const int M_H_2 = 45;
 const int WalkLeft = -5;
 const int WalkRight = 5;
 const int WalkRight1 = 86 * 2;
-const int WalkUp = -120;
-const int WalkDown = 6;
+const int WalkUp = -5;
+const int WalkDown = 5;
 const int Char_WIDTH = 60;
 const int Char_HEIGHT = 64;
 static int RowNum = 0;
-
 enum Screen_
 {
 	MENU,
 	MAIN,
-	SETTING_CHAR,
-	SETTING_MAP,
+	CHAR,
+	SKILL,
 	GAME_OVER,
 	TOTAL_SCREEN_
 };
@@ -46,10 +51,11 @@ enum Buttons
 {
 	play_,
 	quit_,
-	settings_,
+	char_,
+	skill_1,
+	skill_2,
+	skill_,
 	back_,
-	map_1,
-	map_2,
 	confirm_,
 	char_1,
 	char_2,
@@ -75,7 +81,7 @@ public:
 	bool loadFromFile(std::string path = "", int value = 0);
 
 	//Renders texture at given point
-	void TShow(int x = -1, int y = -1, SDL_Rect* clip = NULL);
+	void TShow(double x = -1, double y = -1, SDL_Rect* clip = NULL);
 
 	//Gets image dimensions
 	int getWidth();
@@ -90,27 +96,14 @@ protected:
 	SDL_Texture* Texture;
 	SDL_Renderer* renderer;
 	//Image dimensions
-	int pos_x;
-	int pos_y;
+	double pos_x;
+	double pos_y;
 	int Width;
 	int Height;
 	int type;
 	
 
 };
-class MyText : public MyTexture
-{
-public:
-	MyText(int x = 0, int y = 0);
-	~MyText();
-	bool loadFromRenderedText(std::string textureText, SDL_Color textColor);
-private:
 
-
-};
-//static SDL_Event e;
-//static SDL_Window* window = NULL;
-//static SDL_Renderer* Renderer = NULL;
-static TTF_Font* gFont = NULL;
 static void CreateMap(const std::string &Path, MyTexture **Layer, int MAP_H, int MAP_W, char _map);
 #endif
