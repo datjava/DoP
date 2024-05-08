@@ -22,10 +22,11 @@ private:
 	SDL_Renderer* Renderer ;
 	std::vector<std::pair<MyButton,MyText>*> Button;
 	std::vector<MyTexture*> Skill;
-	std::vector<MyCharacter*> Monster;
+	std::vector<std::pair<MyCharacter,MyText>*> Monster;
 	MyTexture BackgroundTexture[TOTAL_SCREEN_];
-	MyCharacter* Char;
-	SDL_Rect Clip[8],Clip_[4];
+	std::pair<MyCharacter,MyText>* Char;
+	MyText* time = NULL;
+	SDL_Rect Clip[16],Clip_[21];
 	MyTexture Heart, Pow[2][4];
 	int bg_ = MENU, alp = 255, dis = 1, dis_l = 2, cur_point = 0;
 	int map = 1;
@@ -33,7 +34,6 @@ private:
 	int curBg = 0;
 	int totalSkill = 12;
 	int attackFrame = 0;
-	int totalMonster = 18;
 	int monsterFrame = 0;
 	std::vector<SDL_Point> arr;
 	char MapType = '1';

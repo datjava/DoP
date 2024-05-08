@@ -85,18 +85,6 @@ bool Game::MediaLoad()
 		printf("Failed to load background texture image!\n");
 		success = false;
 	}
-	if (BackgroundTexture[CHAR].loadFromFile("image/Char.png") == 0)
-	{
-		printf("Failed to load background texture image!\n");
-		success = false;
-
-	}
-	if (BackgroundTexture[SKILL].loadFromFile("image/skill.png") == 0)
-	{
-		printf("Failed to load background texture image!\n");
-		success = false;
-
-	}
 	if (BackgroundTexture[GAME_OVER].loadFromFile("image/GAMEOVER.png") == 0)
 	{
 		printf("Failed to load background texture image!\n");
@@ -108,29 +96,43 @@ bool Game::MediaLoad()
 		success = false;
 	}
 	//load character texture
-	Char = new MyCharacter(70, 120);
-	Char->setRenderer(Renderer);
-	if (Char->loadFromFile("image/Pink_Monster_Run_6.png") == 0)
+	Char = new std::pair<MyCharacter, MyText>;
+	Char->first = MyCharacter(500, 120);
+	Char->first.setRenderer(Renderer);
+	Char->second.setRenderer(Renderer);
+	Char->second.setFont(10, "font/lazy.ttf");
+	Char->second.loadFromRenderedText(std::to_string(Char->first.getPower()), { 255,255,255 });
+	if (Char->first.loadFromFile("image/ch0.png") == 0)
 	{
 		printf("Failed to load character texture image!\n");
 		success = false;
 	}
 	//load monster
-	for (int i = 0; i < totalMonster; i++)
+	for (int i = 0; i < 10; i++)
 	{
-		MyCharacter* temp = new MyCharacter;
-		temp->setRenderer(Renderer);
-		std::string s = "image/monster/";
-		std::string num = std::to_string(i);
+		std::pair<MyCharacter, MyText>* temp = new std::pair<MyCharacter, MyText>;
+		temp->first = MyCharacter(70 + rand() % 32, 40 + i * 64);
+		temp->first.setRenderer(Renderer);
+		temp->first.changePower(rand() % 10 + 1);
+		temp->second.setRenderer(Renderer);
+		temp->second.setFont(8, "font/lazy.ttf");
+		temp->second.loadFromRenderedText(std::to_string(temp->first.getPower()), { 255,255,255 });
+		std::string s = "image/ch";
+		std::string num = std::to_string(i % 4 + 1);
 		//while (num.size() != 2)num = "0" + num;
 		s += num;
 		s += ".png";
-		if (temp->loadFromFile(s) == 0)
+		if (temp->first.loadFromFile(s) == 0)
 		{
 			printf("Failed to load monster texture image!\n");
 			success = false;
 		}
-		Monster.push_back(temp);
+		if (temp != NULL)
+			Monster.push_back(temp);
+		else
+		{
+			printf("Failed to load monster texture image!\n");
+		}
 	}
 	//load button texture
 	for (int i = 0; i < TOTAL_BUTTONS; ++i)
@@ -168,31 +170,6 @@ bool Game::MediaLoad()
 				success = false;
 			}
 			break;
-		case char_:
-			if (temp->second.loadFromRenderedText("Char", { 255,255,255 }) == 0)
-			{
-				printf("Failed to load text texture image!\n");
-				success = false;
-			}
-
-			if (temp->first.loadFromFile("image/green_button00.png") == 0)
-			{
-				printf("3Failed to load button texture image!\n");
-				success = false;
-			}
-			break;
-		case skill_:
-			if (temp->first.loadFromFile("image/green_button00.png") == 0)
-			{
-				printf("4Failed to load button texture image!\n");
-				success = false;
-			}
-			if (temp->second.loadFromRenderedText("Skill", { 255,255,255 }) == 0)
-			{
-				printf("Failed to load text texture image!\n");
-				success = false;
-			}
-			break;
 		case back_:
 			if (temp->first.loadFromFile("image/back1.png") == 0)
 			{
@@ -207,41 +184,6 @@ bool Game::MediaLoad()
 				success = false;
 			}
 			break;
-		case char_1:
-			if (temp->first.loadFromFile("image/char1.png") == 0)
-			{
-				printf("Failed to load button texture image!\n");
-				success = false;
-			}
-			break;
-		case char_2:
-			if (temp->first.loadFromFile("image/char2.png") == 0)
-			{
-				printf("Failed to load button texture image!\n");
-				success = false;
-			}
-			break;
-		case char_3:
-			if (temp->first.loadFromFile("image/char3.png") == 0)
-			{
-				printf("Failed to load button texture image!\n");
-				success = false;
-			}
-			break;
-		case skill_1:
-			if (temp->first.loadFromFile("image/water.png") == 0)
-			{
-				printf("Failed to load button texture image!\n");
-				success = false;
-			}
-			break;
-		case skill_2:
-			if (temp->first.loadFromFile("image/fire.png") == 0)
-			{
-				printf("Failed to load button texture image!\n");
-				success = false;
-			}
-			break;
 		default:
 			break;
 		}
@@ -253,73 +195,34 @@ bool Game::MediaLoad()
 		}
 	}
 	//load clip
-	for (int i = 0; i < 8; ++i)
-	{
-		/*Clip[i].x = i * 30;
-		Clip[i].y = 0;
-		Clip[i].w = 30;
-		Clip[i].h = 33;*/
-		Clip[i].x = i * 32;
-		Clip[i].y = 0;
-		Clip[i].w = 32;
-		Clip[i].h = 32;
-	}
 	for (int i = 0; i < 4; ++i)
 	{
-		Clip_[i].x = i * 16;
-		Clip_[i].y = 0;
-		Clip_[i].w = 16;
-		Clip_[i].h = 16;
+		for (int j = 0; j < 4; ++j)
+		{
+			Clip[i * 4 + j].x = j * 32;
+			Clip[i * 4 + j].y = i * 32;
+			Clip[i * 4 + j].w = 32;
+			Clip[i * 4 + j].h = 32;
+		}
+	}
+	for (int i = 0; i < 3; ++i)
+	{
+		for (int j = 0; j < 8; ++j)
+		{
+			Clip_[i * 8 + j].x = j * 32;
+			Clip_[i * 8 + j].y = i * 25;
+			Clip_[i * 8 + j].w = 32;
+			Clip_[i * 8 + j].h = 25;
+		}
 	}
 	//Load tile texture
-	Layer2 = new MyTexture * [M_H_2];
+	Layer2 = new MyTexture * [n];
 	for (int i = 0; i < n; ++i)
 	{
 		Layer2[i] = new MyTexture[m];
 	}
 	//CreateMap("image/map.txt", Layer1, M_H_1, M_W_1, MapType);
 	CreateMap("image/map.txt", Layer2, n, m, MapType);
-	//load heart and power
-	Heart.setRenderer(Renderer);
-	if (Heart.loadFromFile("image/heart1.png") == 0)
-	{
-		printf("Failed to load heart texture image!\n");
-		success = false;
-	}
-	for (int i = 0; i < 2; ++i)
-	{
-		for (int j = 0; j < 3; ++j)
-		{
-			Pow[i][j].setRenderer(Renderer);
-			//"D:\lib\Octopus\image\tile_bg\pow\00.png"
-			std::string s = "image/tile_bg/pow/";
-			s += (char)(i + '0');
-			s += (char)(j + '0');
-			s += ".png";
-			if (Pow[i][j].loadFromFile(s) == 0)
-			{
-				printf("Failed to load power texture image!\n");
-				success = false;
-			}
-		}
-	}
-	//load skill
-	for (int i = 0; i < totalSkill; ++i)
-	{
-		MyTexture* temp = new MyTexture;
-		temp->setRenderer(Renderer);
-		std::string s = "image/water1/skill1/";
-		std::string num = std::to_string(i);
-		while (num.size() != 2)num = "0" + num;
-		s += num;
-		s += ".png";
-		if (temp->loadFromFile(s) == 0)
-		{
-			printf("Failed to load skill texture image!\n");
-			success = false;
-		}
-		Skill.push_back(temp);
-	}
 	return success;
 
 }
@@ -394,8 +297,8 @@ void Game::handleInput()
 							case play_:
 								if (Char == NULL)
 								{
-									Char = new MyCharacter();
-									Char->setRenderer(Renderer);
+									/*Char->first = MyCharacter(70,120);
+									Char->first.setRenderer(Renderer);*/
 									MediaLoad();
 								}
 								bg_ = MAIN;
@@ -411,46 +314,6 @@ void Game::handleInput()
 								break;
 							}
 						}
-						if (bg_ == CHAR)
-						{
-							switch (i)
-							{
-							case char_1:
-								//bg_ = 3;
-								delete Char;
-								Char = new MyCharacter(70, 120);
-								Char->setRenderer(Renderer);
-								if (Char->loadFromFile("image/Pink_Monster_Run_6.png") == 0)
-								{
-									printf("Failed to load character texture image!\n");
-								}
-								break;
-							case char_3:
-								//Char->loadFromFile("");
-								delete Char;
-								Char = new MyCharacter(70, 120);
-								Char->setRenderer(Renderer);
-								if (Char->loadFromFile("image/Dude_Monster_Run_6.png") == 0)
-								{
-									printf("Failed to load character texture image!\n");
-								}
-								break;
-							case char_2:
-								//Char->loadFromFile("");
-								delete Char;
-								Char = new MyCharacter(70, 120);
-								Char->setRenderer(Renderer);
-								if (Char->loadFromFile("image/Owlet_Monster_Run_6.png") == 0)
-								{
-									printf("Failed to load character texture image!\n");
-								}
-								//bg_ = 5;
-								break;
-							default:
-								break;
-							}
-						}
-
 						switch (i)
 						{
 						case confirm_:
@@ -459,17 +322,11 @@ void Game::handleInput()
 							case CHAR:
 								bg_ = MENU;
 								break;
-							case SKILL:
-								bg_ = MENU;
-								break;
 							}
 							break;
 						case back_:
 							switch (bg_)
 							{
-							case SKILL:
-								bg_ = MENU;
-								break;
 							case CHAR:
 								bg_ = MENU;
 								break;
@@ -484,72 +341,20 @@ void Game::handleInput()
 						default:
 							break;
 						}
-						if (bg_ == SKILL)
-						{
-							switch (i)
-							{
-							case skill_1:
-								//bg_ = 3;
-								totalSkill = 12;
-								Skill.clear();
-								for (int i = 0; i < totalSkill; ++i)
-								{
-									MyTexture* temp = new MyTexture;
-									temp->setRenderer(Renderer);
-									std::string s = "image/water1/skill1/";
-									std::string num = std::to_string(i);
-									while (num.size() != 2)num = "0" + num;
-									s += num;
-									s += ".png";
-									if (temp->loadFromFile(s) == 0)
-									{
-										printf("Failed to load skill texture image!\n");
-									}
-									Skill.push_back(temp);
-								}
-								break;
-							case skill_2:
-								//Char->loadFromFile("");
-								totalSkill = 39;
-								Skill.clear();
-								for (int i = 0; i < totalSkill; ++i)
-								{
-									MyTexture* temp = new MyTexture;
-									temp->setRenderer(Renderer);
-									std::string s = "image/fire1/skill1/";
-									std::string num = std::to_string(i);
-									while (num.size() != 2)num = "0" + num;
-									s += num;
-									s += ".png";
-									if (temp->loadFromFile(s) == 0)
-									{
-										printf("Failed to load skill texture image!\n");
-									}
-									Skill.push_back(temp);
-								}
-								break;
-							default:
-								break;
-							}
-						}
 					}
 				}
 			}
 			else if (e.type == SDL_KEYDOWN)
 			{
-				if (Char != NULL)
+				/*if (Char != NULL)
 				{
-					Char->Update(Layer2, e, arr, curBg);
+					Char->first.Update(Layer2, e, arr, curBg);
 					if (e.key.keysym.sym == SDLK_SPACE)
 					{
 						attack = true;
 					}
 					CharFrame++;
-				}
-			}
-			else if (e.type == SDL_KEYUP)
-			{
-				CharFrame = 5;
+				}*/
 			}
 
 		}
@@ -564,36 +369,16 @@ void Game::handleInput()
 		{
 			//std::cout << Button.size() << '\n';
 			Button[play_]->first.TShow(200, 350);
-			Button[skill_]->first.TShow(200, 420);
-			Button[char_]->first.TShow(200, 490);
+			/*Button[skill_]->first.TShow(200, 420);
+			Button[char_]->first.TShow(200, 490);*/
 			Button[quit_]->first.TShow(200, 560);
 			Button[play_]->second.TShow(250, 360);
-			Button[skill_]->second.TShow(250, 430);
-			Button[char_]->second.TShow(250, 500);
+			/*Button[skill_]->second.TShow(250, 430);
+			Button[char_]->second.TShow(250, 500);*/
 			Button[quit_]->second.TShow(250, 570);
-		}
-		if (bg_ == CHAR)
-		{
-			Button[back_]->first.TShow(20, 570);
-			Button[char_1]->first.TShow(330, 300);
-			Button[char_2]->first.TShow(530, 300);
-			Button[char_3]->first.TShow(730, 300);
-			Button[confirm_]->first.TShow(1030, 570);
-		}
-		if (bg_ == SKILL)
-		{
-			Button[back_]->first.TShow(20, 570);
-			Button[confirm_]->first.TShow(1030, 570);
-			Button[skill_1]->first.TShow(330, 300);
-			Button[skill_2]->first.TShow(530, 300);
 		}
 		if (Char != NULL && bg_ == MAIN)
 		{
-			if (Char->totalHeart() <= 0)
-			{
-				Char = NULL;
-				bg_ = GAME_OVER;
-			}
 			if (Char != NULL)
 			{
 				//show map
@@ -601,71 +386,108 @@ void Game::handleInput()
 				{
 					for (int j = 0; j < M_W_2; ++j)
 					{
-						Layer2[i][j].TShow(j * 16, i * 16);
+						Layer2[i][j].TShow(j * 16 + 30, i * 16 + 30);
 					}
 				}
-				CharFrame %= 6;
+				CharFrame++;
+				CharFrame %= 21;
 				monsterFrame++;
-				monsterFrame %= 4;
+				monsterFrame %= 16;
 				Button[back_]->first.TShow(20, 570);
+				int x = 0, y = 0;
+				int mx;
+				int my;
+				SDL_GetMouseState(&mx, &my);
+				x = mx - Char->first.getX();
+				y = my - Char->first.getY();
+				x /= 29;
+				y /= 29;
+				//show other
+				srand(time(NULL));
+				for (int i = 0; i < Monster.size(); i++)
+				{
+					int x_m = Monster[i]->first.getX();
+					int y_m = Monster[i]->first.getY();
+					int x_c = Char->first.getX() + x;
+					int y_c = Char->first.getY() + y;
+					//check xm ym
+					//std::cout << Monster[i]->first.getPower() << '\n';
+					if(x_c <= x_m && x_m <= x_c + 32 && y_c <= y_m && y_m <= y_c + 25)
+					{
+						
+						Char->first.changePower(Monster[i]->first.getPower());Monster.erase(Monster.begin() + i);
+					}
+					//check xm +32 ym
+					else if (x_c <= x_m + 32 && x_m + 32 <= x_c + 32 && y_c <= y_m && y_m <= y_c + 25)
+					{
+						
+						Char->first.changePower(Monster[i]->first.getPower());Monster.erase(Monster.begin() + i);
+					}
+					//check xm ym + 32
+					else if(x_c <= x_m && x_m <= x_c + 32 && y_c <= y_m + 25 && y_m + 25 <= y_c + 25)
+					{
+						
+						Char->first.changePower(Monster[i]->first.getPower());Monster.erase(Monster.begin() + i);
+					}
+					//check xm + 32 ym + 32
+					else if (x_c <= x_m + 32 && x_m + 32 <= x_c + 32 && y_c <= y_m + 25 && y_m + 25 <= y_c + 25)
+					{
+						
+						Char->first.changePower(Monster[i]->first.getPower());Monster.erase(Monster.begin() + i);
+					}
+				}
+				for (int i = 0; i < Monster.size(); ++i)
+				{
+					int x_m = Monster[i]->first.getX();
+					int y_m = Monster[i]->first.getY();
+					if (x_m < 0 || x_m > SCREEN_WIDTH || y_m < 0 || y_m > SCREEN_HEIGHT)
+					{
+						Monster.erase(Monster.begin() + i);
+					}
+					else
+					{
+						x_m += rand() % 4;
+						y_m += rand() % 2;
+						Monster[i]->first.TShow(x_m, y_m, &Clip[monsterFrame]);
+						Monster[i]->second.TShow(x_m, y_m);
 
+					}
+				}
+				//render time
+				SDL_GetTicks();
+				if (Monster.size() <= 100 && SDL_GetTicks() % 100 == 0)
+				{
+					std::pair<MyCharacter, MyText>* temp = new std::pair<MyCharacter, MyText>;
+					temp->first = MyCharacter(70 + rand() % 32, 40);
+					temp->first.setRenderer(Renderer);
+					temp->first.changePower(rand() % 10 + 1);
+					temp->second.setRenderer(Renderer);
+					temp->second.setFont(10, "font/lazy.ttf");
+					temp->second.loadFromRenderedText(std::to_string(temp->first.getPower()), { 255,255,255 });
+					std::string s = "image/ch";
+					std::string num = std::to_string(rand() % 5 + 1);
+					//while (num.size() != 2)num = "0" + num;
+					s += num;
+					s += ".png";
+					if (temp->first.loadFromFile(s) == 0)
+					{
+						printf("Failed to load monster texture image!\n");
+
+					}
+					if (temp != NULL)
+						Monster.push_back(temp);
+					else
+					{
+						printf("Failed to load monster texture image!\n");
+					}
+				}
 				//show character
-				Char->TShow(-1, -1, &Clip[CharFrame]);
-				//show monster
-				for (int i = 0; i < totalMonster; ++i)
-				{
-					//calculate angle
-					double angle = atan2(Char->getY() - Monster[i]->getY(), Char->getX() - Monster[i]->getX());
-					double dx = cos(angle);
-					double dy = sin(angle);
-					std::cout << dx << ' ' << dy << '\n';
-					Monster[i]->TShow(Monster[i]->getX() + dx,Monster[i]->getY() + dy, &Clip_[monsterFrame]);
-				}
-				//show skill
-				if (attack == true)
-				{
-					if (attackFrame == totalSkill)attack = false;
-					attackFrame %= totalSkill;
-					Skill[attackFrame]->TShow(Char->getX() + 8, Char->getY() - 8);
-					attackFrame++;
-				}
-				//show heart and power
-				for (int i = 0; i < Char->totalHeart(); ++i)
-				{
-					Heart.TShow(10 + i * 36, 10);
-				}
-				for (int i = 0; i < cur_power; ++i)
-				{
-					if (i == 0)
-					{
-						Pow[0][0].TShow(10 + i * 18 + 9, 50);
-					}
-					else if (i == cur_power - 1)
-					{
-						Pow[0][2].TShow(10 + i * 18, 50);
-					}
-					else
-					{
-						Pow[0][1].TShow(10 + i * 18, 50);
-					}
-				}
-				for (int i = 0; i < Char->totalPower(); ++i)
-				{
-					if (i == 0)
-					{
-						Pow[1][0].TShow(10 + i * 18 + 9, 50);
-					}
-					else if (i == Char->totalPower() - 1)
-					{
-						Pow[1][2].TShow(10 + i * 18, 50);
-					}
-					else
-					{
-						Pow[1][1].TShow(10 + i * 18, 50);
-					}
-				}
-
+				Char->first.Update(Layer2, x, y);
+				Char->first.TShow(-1, -1, &Clip_[CharFrame]);
+				Char->second.loadFromRenderedText(std::to_string(Char->first.getPower()), { 255,255,255 });
+				Char->second.TShow(Char->first.getX(), Char->first.getY());
 			}
+
 
 			SDL_Delay(50);
 
