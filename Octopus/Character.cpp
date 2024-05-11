@@ -8,7 +8,6 @@ MyCharacter::MyCharacter(int x, int y)
 	Width = 0;
 	Height = 0;
 	type = 0;
-	isOnGround = 0;
 }
 MyCharacter::~MyCharacter()
 {

@@ -9,12 +9,10 @@ public:
 	~MyCharacter();
 	void Update(MyTexture** layer,double x,double y);
 	int Check(MyTexture** layer);
-	
 	int getX(){ return pos_x; }
 	int getY() { return pos_y; }
-	void changePower(int x) { power += x; }	
+	void changePower(int x) { power = x; }	
 	int getPower() { return power; }
 private:
-	bool isOnGround = 0;;
 	int power = 0;
 };

@@ -25,9 +25,8 @@ private:
 	std::vector<std::pair<MyCharacter,MyText>*> Monster;
 	MyTexture BackgroundTexture[TOTAL_SCREEN_];
 	std::pair<MyCharacter,MyText>* Char;
-	MyText* time = NULL;
+	MyText* time = NULL,*Num = NULL,*curState = NULL;
 	SDL_Rect Clip[16],Clip_[21];
-	MyTexture Heart, Pow[2][4];
 	int bg_ = MENU, alp = 255, dis = 1, dis_l = 2, cur_point = 0;
 	int map = 1;
 	int cur_power = 16;
@@ -35,6 +34,7 @@ private:
 	int totalSkill = 12;
 	int attackFrame = 0;
 	int monsterFrame = 0;
+	int curTime = 0, passTime = 0, gapTime = 60,cnt = 0,curNum = -1,magicNum = 200,timeLimit = 30;
 	std::vector<SDL_Point> arr;
 	char MapType = '1';
 	bool quit = false;

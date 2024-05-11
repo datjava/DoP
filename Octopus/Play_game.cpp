@@ -85,11 +85,6 @@ bool Game::MediaLoad()
 		printf("Failed to load background texture image!\n");
 		success = false;
 	}
-	if (BackgroundTexture[GAME_OVER].loadFromFile("image/GAMEOVER.png") == 0)
-	{
-		printf("Failed to load background texture image!\n");
-		success = false;
-	}
 	if (BackgroundTexture[MAIN].loadFromFile("image/th.jpg") == 0)
 	{
 		printf("Failed to load background texture image!\n");
@@ -107,6 +102,19 @@ bool Game::MediaLoad()
 		printf("Failed to load character texture image!\n");
 		success = false;
 	}
+	//Time
+	time = new MyText;
+	time->setRenderer(Renderer);
+	time->setFont(20, "font/lazy.ttf");
+	//num
+	Num = new MyText;
+	Num->setRenderer(Renderer);
+	Num->setFont(20, "font/lazy.ttf");
+	//load curState
+	curState = new MyText;
+	curState->setRenderer(Renderer);
+	curState->setFont(50, "font/lazy.ttf");
+
 	//load monster
 	for (int i = 0; i < 10; i++)
 	{
@@ -122,7 +130,7 @@ bool Game::MediaLoad()
 		//while (num.size() != 2)num = "0" + num;
 		s += num;
 		s += ".png";
-		if (temp->first.loadFromFile(s) == 0)
+		if (temp->first.loadFromFile(s,atoi(num.c_str())) == 0)
 		{
 			printf("Failed to load monster texture image!\n");
 			success = false;
@@ -344,18 +352,6 @@ void Game::handleInput()
 					}
 				}
 			}
-			else if (e.type == SDL_KEYDOWN)
-			{
-				/*if (Char != NULL)
-				{
-					Char->first.Update(Layer2, e, arr, curBg);
-					if (e.key.keysym.sym == SDLK_SPACE)
-					{
-						attack = true;
-					}
-					CharFrame++;
-				}*/
-			}
 
 		}
 		SDL_RenderClear(Renderer);
@@ -402,45 +398,11 @@ void Game::handleInput()
 				y = my - Char->first.getY();
 				x /= 29;
 				y /= 29;
-				//show other
-				srand(time(NULL));
-				for (int i = 0; i < Monster.size(); i++)
-				{
-					int x_m = Monster[i]->first.getX();
-					int y_m = Monster[i]->first.getY();
-					int x_c = Char->first.getX() + x;
-					int y_c = Char->first.getY() + y;
-					//check xm ym
-					//std::cout << Monster[i]->first.getPower() << '\n';
-					if(x_c <= x_m && x_m <= x_c + 32 && y_c <= y_m && y_m <= y_c + 25)
-					{
-						
-						Char->first.changePower(Monster[i]->first.getPower());Monster.erase(Monster.begin() + i);
-					}
-					//check xm +32 ym
-					else if (x_c <= x_m + 32 && x_m + 32 <= x_c + 32 && y_c <= y_m && y_m <= y_c + 25)
-					{
-						
-						Char->first.changePower(Monster[i]->first.getPower());Monster.erase(Monster.begin() + i);
-					}
-					//check xm ym + 32
-					else if(x_c <= x_m && x_m <= x_c + 32 && y_c <= y_m + 25 && y_m + 25 <= y_c + 25)
-					{
-						
-						Char->first.changePower(Monster[i]->first.getPower());Monster.erase(Monster.begin() + i);
-					}
-					//check xm + 32 ym + 32
-					else if (x_c <= x_m + 32 && x_m + 32 <= x_c + 32 && y_c <= y_m + 25 && y_m + 25 <= y_c + 25)
-					{
-						
-						Char->first.changePower(Monster[i]->first.getPower());Monster.erase(Monster.begin() + i);
-					}
-				}
 				for (int i = 0; i < Monster.size(); ++i)
 				{
 					int x_m = Monster[i]->first.getX();
 					int y_m = Monster[i]->first.getY();
-					if (x_m < 0 || x_m > SCREEN_WIDTH || y_m < 0 || y_m > SCREEN_HEIGHT)
+					if (x_m < 30 || x_m > 16 * M_W_2 || y_m < 3 || y_m > 16 * M_H_2)
 					{
 						Monster.erase(Monster.begin() + i);
 					}
@@ -453,23 +415,24 @@ void Game::handleInput()
 
 					}
 				}
-				//render time
-				SDL_GetTicks();
-				if (Monster.size() <= 100 && SDL_GetTicks() % 100 == 0)
+				//add more Monster
+				if (Monster.size() <= 5)
 				{
+					cnt %= SCREEN_HEIGHT;
 					std::pair<MyCharacter, MyText>* temp = new std::pair<MyCharacter, MyText>;
-					temp->first = MyCharacter(70 + rand() % 32, 40);
+					temp->first = MyCharacter(70, cnt);
+					cnt += 100;
 					temp->first.setRenderer(Renderer);
 					temp->first.changePower(rand() % 10 + 1);
 					temp->second.setRenderer(Renderer);
 					temp->second.setFont(10, "font/lazy.ttf");
 					temp->second.loadFromRenderedText(std::to_string(temp->first.getPower()), { 255,255,255 });
 					std::string s = "image/ch";
-					std::string num = std::to_string(rand() % 5 + 1);
+					std::string num = std::to_string(rand() % 4 + 1);
 					//while (num.size() != 2)num = "0" + num;
 					s += num;
 					s += ".png";
-					if (temp->first.loadFromFile(s) == 0)
+					if (temp->first.loadFromFile(s,atoi(num.c_str())) == 0)
 					{
 						printf("Failed to load monster texture image!\n");
 
@@ -486,17 +449,101 @@ void Game::handleInput()
 				Char->first.TShow(-1, -1, &Clip_[CharFrame]);
 				Char->second.loadFromRenderedText(std::to_string(Char->first.getPower()), { 255,255,255 });
 				Char->second.TShow(Char->first.getX(), Char->first.getY());
+				//show other
+				for (int i = 0; i < Monster.size(); i++)
+				{
+					int x_m = Monster[i]->first.getX();
+					int y_m = Monster[i]->first.getY();
+					int x_c = Char->first.getX() ;
+					int y_c = Char->first.getY() ;
+					int Power = Char->first.getPower();
+					int monsterPower = Monster[i]->first.getPower();
+					int monsterType = Monster[i]->first.getType();	
+					switch (monsterType)
+					{
+						case 1:
+							Power += monsterPower;
+							break;
+						case 2:
+							Power *= monsterPower;
+							break;
+						case 3:
+							Power -= monsterPower;
+							break;
+						case 4:
+							Power %= monsterPower;
+							Power = abs(Power);
+							break;
+						default:
+							break;
+					}
+				//Power %= monsterPower;
+					//check xm ym
+					//std::cout << Monster[i]->first.getPower() << '\n';
+					if(x_c <= x_m && x_m <= x_c + 32 && y_c <= y_m && y_m <= y_c + 25)
+					{
+						
+						Char->first.changePower(Power);Monster.erase(Monster.begin() + i);
+					}
+					//check xm +32 ym
+					else if (x_c <= x_m + 32 && x_m + 32 <= x_c + 32 && y_c <= y_m && y_m <= y_c + 25)
+					{
+						
+						Char->first.changePower(Power);Monster.erase(Monster.begin() + i);
+					}
+					//check xm ym + 32
+					else if(x_c <= x_m && x_m <= x_c + 32 && y_c <= y_m + 25 && y_m + 25 <= y_c + 25)
+					{
+						
+						Char->first.changePower(Power);Monster.erase(Monster.begin() + i);
+					}
+					//check xm + 32 ym + 32
+					else if (x_c <= x_m + 32 && x_m + 32 <= x_c + 32 && y_c <= y_m + 25 && y_m + 25 <= y_c + 25)
+					{
+						
+						Char->first.changePower(Power);Monster.erase(Monster.begin() + i);
+					}
+				}
+				
+				//create and render num
+				if (curNum == -1)
+				{
+					curNum = rand() % magicNum + 1;
+				}
+				Num->loadFromRenderedText(std::to_string(curNum), { 255,255,255 });
+				Num->TShow(450, 600);
+				
+				//show time
+				time->loadFromRenderedText(std::to_string(timeLimit - (curTime = SDL_GetTicks() / 1000)), { 255,255,0 });
+				time->TShow(250, 600);
+				SDL_Delay(50);
+				//random num
+				if (curTime - passTime >= gapTime)
+				{
+					passTime = curTime;
+					curNum = rand() % magicNum + 1;
+					//std::cout << gapTime << '\n';
+				}
+				else if (timeLimit - curTime <= 0)
+				{
+					delete Char;
+					Char = NULL;
+					curState->loadFromRenderedText("YOU LOOSE", { 255,255,255 });
+					//curState->TShow(400, 300);
+				}
+				else {
+					if (Char->first.getPower() == curNum)
+					{
+						delete Char;
+						Char = NULL;
+						curState->loadFromRenderedText("YOU WIN", { 255,255,255 });
+						
+					}
+				}
 			}
-
-
-			SDL_Delay(50);
-
+			
 		}
-		if (bg_ == GAME_OVER)
-		{
-			Button[quit_]->first.TShow(1200, 570);
-			Button[back_]->first.TShow(20, 570);
-		}
+		curState->TShow(400, 300);
 		SDL_RenderPresent(Renderer);
 	}
 

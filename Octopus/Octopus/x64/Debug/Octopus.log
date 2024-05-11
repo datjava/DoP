@@ -1,9 +1,2 @@
-﻿  Play_game.cpp
-D:\lib\DoP\Octopus\Character.h(13,21): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
-  (compiling source file 'Play_game.cpp')
-  
-D:\lib\DoP\Octopus\Character.h(14,22): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
-  (compiling source file 'Play_game.cpp')
-  
-D:\lib\DoP\Octopus\Play_game.cpp(406,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+﻿  LINK : D:\lib\DoP\Octopus\x64\Debug\Octopus.exe not found or not built by the last incremental link; performing full link
   Octopus.vcxproj -> D:\lib\DoP\Octopus\x64\Debug\Octopus.exe
