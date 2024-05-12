@@ -42,8 +42,7 @@ enum Screen_
 {
 	MENU,
 	MAIN,
-	CHAR,
-	SKILL,
+	LEVEL,
 	GAME_OVER,
 	TOTAL_SCREEN_
 };
@@ -51,15 +50,11 @@ enum Buttons
 {
 	play_,
 	quit_,
-	char_,
-	skill_1,
-	skill_2,
-	skill_,
 	back_,
-	confirm_,
-	char_1,
-	char_2,
-	char_3,
+	level_,
+	easy_,
+	normal_,
+	hard_,
 	TOTAL_BUTTONS
 
 };

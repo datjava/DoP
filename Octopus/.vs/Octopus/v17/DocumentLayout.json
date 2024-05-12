@@ -7,20 +7,20 @@
       "RelativeMoniker": "D:0:0:{0E608887-5B6C-47E3-AF3A-89F38A2F33DE}|Octopus.vcxproj|solutionrelative:Play_game.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0E608887-5B6C-47E3-AF3A-89F38A2F33DE}|Octopus.vcxproj|D:\\lib\\DoP\\Octopus\\Header.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{0E608887-5B6C-47E3-AF3A-89F38A2F33DE}|Octopus.vcxproj|solutionrelative:Header.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{0E608887-5B6C-47E3-AF3A-89F38A2F33DE}|Octopus.vcxproj|D:\\lib\\DoP\\Octopus\\Play_game.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{0E608887-5B6C-47E3-AF3A-89F38A2F33DE}|Octopus.vcxproj|solutionrelative:Play_game.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0E608887-5B6C-47E3-AF3A-89F38A2F33DE}|Octopus.vcxproj|D:\\lib\\DoP\\Octopus\\Character.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{0E608887-5B6C-47E3-AF3A-89F38A2F33DE}|Octopus.vcxproj|solutionrelative:Character.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{0E608887-5B6C-47E3-AF3A-89F38A2F33DE}|Octopus.vcxproj|D:\\lib\\DoP\\Octopus\\Header.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{0E608887-5B6C-47E3-AF3A-89F38A2F33DE}|Octopus.vcxproj|solutionrelative:Header.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0E608887-5B6C-47E3-AF3A-89F38A2F33DE}|Octopus.vcxproj|D:\\lib\\DoP\\Octopus\\Character.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{0E608887-5B6C-47E3-AF3A-89F38A2F33DE}|Octopus.vcxproj|solutionrelative:Character.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E608887-5B6C-47E3-AF3A-89F38A2F33DE}|Octopus.vcxproj|D:\\lib\\DoP\\Octopus\\Character.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{0E608887-5B6C-47E3-AF3A-89F38A2F33DE}|Octopus.vcxproj|solutionrelative:Character.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0E608887-5B6C-47E3-AF3A-89F38A2F33DE}|Octopus.vcxproj|D:\\lib\\DoP\\Octopus\\generate_map.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -77,27 +77,27 @@
               "RelativeDocumentMoniker": "Play_game.cpp",
               "ToolTip": "D:\\lib\\DoP\\Octopus\\Play_game.cpp",
               "RelativeToolTip": "Play_game.cpp",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAABEAAAABAAAA",
+              "ViewState": "AQIAAFQBAAAAAAAAAADwv3EBAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-02-29T05:42:49.668Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "Play_game.h",
               "DocumentMoniker": "D:\\lib\\DoP\\Octopus\\Play_game.h",
               "RelativeDocumentMoniker": "Play_game.h",
               "ToolTip": "D:\\lib\\DoP\\Octopus\\Play_game.h",
               "RelativeToolTip": "Play_game.h",
-              "ViewState": "AQIAABcAAAAAAAAAAADgvycAAAATAAAA",
+              "ViewState": "AQIAAB0AAAAAAAAAAADgvyQAAABeAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-03-02T17:40:48.198Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Character.h",
               "DocumentMoniker": "D:\\lib\\DoP\\Octopus\\Character.h",
               "RelativeDocumentMoniker": "Character.h",
@@ -110,26 +110,26 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "Character.cpp",
               "DocumentMoniker": "D:\\lib\\DoP\\Octopus\\Character.cpp",
               "RelativeDocumentMoniker": "Character.cpp",
               "ToolTip": "D:\\lib\\DoP\\Octopus\\Character.cpp",
               "RelativeToolTip": "Character.cpp",
-              "ViewState": "AQIAAA8AAAAAAAAAAAAAAAkAAAAKAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAKAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-02-29T03:06:48.57Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Header.h",
               "DocumentMoniker": "D:\\lib\\DoP\\Octopus\\Header.h",
               "RelativeDocumentMoniker": "Header.h",
               "ToolTip": "D:\\lib\\DoP\\Octopus\\Header.h",
               "RelativeToolTip": "Header.h",
-              "ViewState": "AQIAACAAAAAAAAAAAAAswEEAAAAPAAAA",
+              "ViewState": "AQIAACYAAAAAAAAAAAAswDgAAAAHAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-02-29T04:44:06.275Z",
               "EditorCaption": ""

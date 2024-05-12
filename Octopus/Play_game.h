@@ -34,7 +34,7 @@ private:
 	int totalSkill = 12;
 	int attackFrame = 0;
 	int monsterFrame = 0;
-	int curTime = 0, passTime = 0, gapTime = 60,cnt = 0,curNum = -1,magicNum = 200,timeLimit = 30;
+	int curTime = 0, passTime = 0, gapTime = 60,cnt = 0,curNum = -1,magicNum = 200,timeLimit = 300;
 	std::vector<SDL_Point> arr;
 	char MapType = '1';
 	bool quit = false;

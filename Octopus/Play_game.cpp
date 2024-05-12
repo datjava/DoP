@@ -90,6 +90,11 @@ bool Game::MediaLoad()
 		printf("Failed to load background texture image!\n");
 		success = false;
 	}
+	if (BackgroundTexture[LEVEL].loadFromFile("image/LEVEL.png") == 0)
+	{
+		printf("Failed to load background texture image!\n");
+		success = false;
+	}
 	//load character texture
 	Char = new std::pair<MyCharacter, MyText>;
 	Char->first = MyCharacter(500, 120);
@@ -163,6 +168,53 @@ bool Game::MediaLoad()
 				success = false;
 			}
 			break;
+		case level_:
+			if (temp->second.loadFromRenderedText("Level", { 255,255,255 }) == 0)
+			{
+				printf("Failed to load text texture image!\n");
+				success = false;
+			}
+			if (temp->first.loadFromFile("image/green_button00.png") == 0)
+			{
+				printf("3Failed to load button texture image!\n");
+				success = false;
+			}
+			break;
+		case easy_:
+			if (temp->second.loadFromRenderedText("Easy", { 255,255,255 }) == 0)
+			{
+				printf("Failed to load text texture image!\n");
+				success = false;
+			}
+			if (temp->first.loadFromFile("image/green_button00.png") == 0)
+			{
+				printf("4Failed to load button texture image!\n");
+				success = false;
+			}
+			break;
+			case normal_:
+				if (temp->second.loadFromRenderedText("Normal", { 255,255,255 }) == 0)
+				{
+				printf("Failed to load text texture image!\n");
+				success = false;
+			}
+				if (temp->first.loadFromFile("image/green_button00.png") == 0)
+				{
+				printf("4Failed to load button texture image!\n");
+				success = false;
+			}
+				break;
+				case hard_:
+					if (temp->second.loadFromRenderedText("Hard", { 255,255,255 }) == 0)
+					{
+							printf("Failed to load text texture image!\n");
+					}
+					if (temp->first.loadFromFile("image/green_button00.png") == 0)
+					{
+							printf("4Failed to load button texture image!\n");
+					}
+					break;
+
 		case quit_:
 			if (temp->second.loadFromRenderedText("Quit", { 255,255,255 }) == 0)
 			{
@@ -182,13 +234,6 @@ bool Game::MediaLoad()
 			if (temp->first.loadFromFile("image/back1.png") == 0)
 			{
 				printf("5Failed to load button texture image!\n");
-				success = false;
-			}
-			break;
-		case confirm_:
-			if (temp->first.loadFromFile("image/confirm1.png") == 0)
-			{
-				printf("6Failed to load button texture image!\n");
 				success = false;
 			}
 			break;
@@ -314,34 +359,41 @@ void Game::handleInput()
 							case quit_:
 								quit = true;
 								break;
-							case skill_:
-								bg_ = SKILL;
+							case level_:
+								bg_ = LEVEL;
 								break;
-							case char_:
-								bg_ = CHAR;
-								break;
+							}
+
+						}
+						if (bg_ == LEVEL)
+						{
+							switch (i)
+							{
+								case easy_:
+									gapTime = 60;
+									break;
+								case normal_:
+									gapTime = 40;
+									break;
+								case hard_:
+									gapTime = 30;
+									break;
 							}
 						}
 						switch (i)
 						{
-						case confirm_:
-							switch (bg_)
-							{
-							case CHAR:
-								bg_ = MENU;
-								break;
-							}
-							break;
+						
 						case back_:
 							switch (bg_)
 							{
-							case CHAR:
-								bg_ = MENU;
-								break;
+							
 							case MAIN:
 								bg_ = MENU;
 								break;
 							case GAME_OVER:
+								bg_ = MENU;
+								break;
+							case LEVEL:
 								bg_ = MENU;
 								break;
 							}
@@ -367,11 +419,27 @@ void Game::handleInput()
 			Button[play_]->first.TShow(200, 350);
 			/*Button[skill_]->first.TShow(200, 420);
 			Button[char_]->first.TShow(200, 490);*/
-			Button[quit_]->first.TShow(200, 560);
+			Button[level_]->first.TShow(200, 420);
+			Button[quit_]->first.TShow(200, 490);
+			
 			Button[play_]->second.TShow(250, 360);
 			/*Button[skill_]->second.TShow(250, 430);
 			Button[char_]->second.TShow(250, 500);*/
-			Button[quit_]->second.TShow(250, 570);
+			Button[quit_]->second.TShow(250, 500);
+			
+			Button[level_]->second.TShow(250, 430);
+		}
+		if (bg_ == LEVEL)
+		{
+			Button[back_]->first.TShow(20, 570);
+			Button[back_]->second.TShow(20, 570);
+			Button[easy_]->first.TShow(200, 350);
+			Button[normal_]->first.TShow(200, 420);
+			Button[hard_]->first.TShow(200, 490);
+			Button[easy_]->second.TShow(230, 360);
+			Button[normal_]->second.TShow(230, 430);
+			Button[hard_]->second.TShow(230, 500);
+
 		}
 		if (Char != NULL && bg_ == MAIN)
 		{
